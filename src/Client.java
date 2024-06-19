@@ -31,9 +31,9 @@ public class Client implements Runnable
 	{
 		try
 		{
-			 out = new PrintWriter(client.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 			client = new Socket(host, 8080);
+			out = new PrintWriter(client.getOutputStream(), true);
+			in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
 			 InputHandler inHandler = new InputHandler();
 			 Thread t = new Thread(inHandler);
@@ -55,8 +55,10 @@ public class Client implements Runnable
 		done = true;
 		try
 		{
-			in.close();
-			out.close();
+			if (in != null)
+				in.close();
+			if (out != null)
+				out.close();
 			if (!client.isClosed())
 				client.close();
 		} catch (IOException e)
