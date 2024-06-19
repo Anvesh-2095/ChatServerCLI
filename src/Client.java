@@ -42,6 +42,11 @@ public class Client implements Runnable
 			String inMessage;
 			while ((inMessage = in.readLine()) != null)
 			{
+				if (inMessage.equals("Please enter an alias: "))
+				{
+					System.out.print(inMessage);
+					continue;
+				}
 				System.out.println(inMessage);
 			}
 		} catch (IOException e)
@@ -83,10 +88,6 @@ public class Client implements Runnable
 						out.println(message); // if not done, terminal will be useless
 						inReader.close();
 						shutDown();
-					}
-					else if (message.equals("Please enter an alias:"))
-					{
-						out.print(message);
 					}
 					else
 					{

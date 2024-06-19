@@ -41,7 +41,7 @@ public class Server implements Runnable
 		}
 	}
 
-	public void shutDown()
+	public void shutDown() // TODO: exit messages are appearing twice
 	{
 		try
 		{
