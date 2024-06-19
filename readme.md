@@ -6,4 +6,4 @@
 ### Installation
 `git clone https://github.com/Anvesh-2095/ChatServerCLI.git`
 
-first run an instance of server and then run client.
+First run an instance of server and then run client.
