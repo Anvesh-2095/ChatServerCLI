@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ChatServerCLI.iml" filepath="$PROJECT_DIR$/ChatServerCLI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ChatRoomCLI.iml" filepath="$PROJECT_DIR$/ChatRoomCLI.iml" />
     </modules>
   </component>
 </project>
