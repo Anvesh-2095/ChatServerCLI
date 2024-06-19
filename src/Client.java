@@ -2,22 +2,38 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 
+// TODO: Handle NullPointerExceptions
 public class Client implements Runnable
 {
 	private Socket client;
 	private BufferedReader in;
 	private PrintWriter out;
 	private boolean done;
+	private String host = "localhost";
+
+	public Client()
+	{
+		done = false;
+	}
+
+	public Client(String host)
+	{
+		done = false;
+		this.host = host;
+	}
+
 	@Override
 	public void run()
 	{
 		try
 		{
-			 client = new Socket("localhost", 8080);
 			 out = new PrintWriter(client.getOutputStream(), true);
-			 in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+			in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+			client = new Socket(host, 8080);
 
 			 InputHandler inHandler = new InputHandler();
 			 Thread t = new Thread(inHandler);
